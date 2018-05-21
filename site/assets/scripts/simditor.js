@@ -4245,7 +4245,7 @@ LinkPopover = (function(superClass) {
     LinkPopover.__super__.show.apply(this, args);
     this.textEl.val(this.target.text());
     this.urlEl.val(this.target.attr('href'));
-    return this.selectTarget.find('options[value=' + this.target.attr('target')(+']')).attr('selected');
+    return this.selectTarget.val(this.target.attr('target'));
   };
 
   return LinkPopover;
