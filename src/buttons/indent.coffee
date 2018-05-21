@@ -14,6 +14,8 @@ class IndentButton extends Button
 
   command: ->
     @editor.indentation.indent()
+    #toFixed 修正缩进无法触发valuechanged事件 by ChanKai
+    @editor.trigger 'valuechanged'
 
 
 Simditor.Toolbar.addButton IndentButton

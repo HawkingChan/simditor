@@ -131,6 +131,8 @@ class LinkPopover extends Popover
     super args...
     @textEl.val @target.text()
     @urlEl.val @target.attr('href')
+    #toFixed 跳转方式勾选
+    @selectTarget.find('options[value='+ @target.attr('target') +']').attr('selected')
 
 
 

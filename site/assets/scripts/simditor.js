@@ -4244,7 +4244,8 @@ LinkPopover = (function(superClass) {
     args = 1 <= arguments.length ? slice.call(arguments, 0) : [];
     LinkPopover.__super__.show.apply(this, args);
     this.textEl.val(this.target.text());
-    return this.urlEl.val(this.target.attr('href'));
+    this.urlEl.val(this.target.attr('href'));
+    return this.selectTarget.find('options[value=' + this.target.attr('target')(+']')).attr('selected');
   };
 
   return LinkPopover;
@@ -4938,7 +4939,8 @@ IndentButton = (function(superClass) {
   IndentButton.prototype._status = function() {};
 
   IndentButton.prototype.command = function() {
-    return this.editor.indentation.indent();
+    this.editor.indentation.indent();
+    return this.editor.trigger('valuechanged');
   };
 
   return IndentButton;
@@ -4968,7 +4970,8 @@ OutdentButton = (function(superClass) {
   OutdentButton.prototype._status = function() {};
 
   OutdentButton.prototype.command = function() {
-    return this.editor.indentation.indent(true);
+    this.editor.indentation.indent(true);
+    return this.editor.trigger('valuechanged');
   };
 
   return OutdentButton;
